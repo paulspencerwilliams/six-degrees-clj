@@ -9,8 +9,8 @@
   (nr/connect! "http://localhost:7474/db/data/")
   (let [res (cy/tquery (format "START
                        bacon=node(759),
-                       keanu=node:Person(name=\"%s\") 
-                       MATCH p = shortestPath(keanu-[*..16]-bacon)
+                       other=node:Person(name=\"%s\") 
+                       MATCH p = shortestPath(other-[*..16]-bacon)
                        RETURN extract(n in nodes(p): COALESCE(n.title?,n.name?)) 
                        AS `shortest`" actor-name))]
     (clojure.string/join " > " (get (first res) "shortest" ))))
