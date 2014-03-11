@@ -6,7 +6,7 @@
 
 (defn find-shortest-path
   [actor-name]
-  (nr/connect! "http://localhost:7474/db/data/")
+  (nr/connect! "http://192.168.50.5:7474/db/data/")
   (let [res (cy/tquery (format "START
                        bacon=node(759),
                        keanu=node:Person(name=\"%s\") 
